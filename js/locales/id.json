@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Tes kecepatan mengetik",
+    "subtitle": "Ukur WPM Anda",
+    "loading": "Memuat..."
+  },
+  "start": {
+    "info": "Uji kecepatan mengetik Anda dalam dua mode berbeda!"
+  },
+  "mode": {
+    "word": "Mode kata",
+    "word.desc": "Ketik kata selama 60 detik",
+    "sentence": "Mode kalimat",
+    "sentence.desc": "Lengkapi kalimat yang diberikan"
+  },
+  "stats": {
+    "lastWpm": "WPM terakhir",
+    "lastAccuracy": "Akurasi terakhir",
+    "bestWpm": "WPM terbaik"
+  },
+  "game": {
+    "placeholder": "Mulai mengetik di sini...",
+    "info": "Akurasi lebih penting daripada kecepatan!"
+  },
+  "result": {
+    "title": "Tes selesai!",
+    "percentile": "Top N%",
+    "wpm": "WPM",
+    "accuracy": "Akurasi",
+    "share": "🔗 Bagikan hasil",
+    "restart": "Coba lagi",
+    "back": "Kembali ke menu",
+    "copied": "Hasil disalin ke papan klip!"
+  }
+}

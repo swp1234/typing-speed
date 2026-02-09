@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Prueba de velocidad de escritura",
+    "subtitle": "Mide tu WPM",
+    "loading": "Cargando..."
+  },
+  "start": {
+    "info": "¡Prueba tu velocidad de escritura en dos modos diferentes!"
+  },
+  "mode": {
+    "word": "Modo de palabras",
+    "word.desc": "Escribe palabras durante 60 segundos",
+    "sentence": "Modo de oraciones",
+    "sentence.desc": "Completa las oraciones dadas"
+  },
+  "stats": {
+    "lastWpm": "Último WPM",
+    "lastAccuracy": "Última precisión",
+    "bestWpm": "Mejor WPM"
+  },
+  "game": {
+    "placeholder": "Comienza a escribir aquí...",
+    "info": "¡La precisión es más importante que la velocidad!"
+  },
+  "result": {
+    "title": "¡Prueba completada!",
+    "percentile": "Top N%",
+    "wpm": "WPM",
+    "accuracy": "Precisión",
+    "share": "🔗 Compartir resultado",
+    "restart": "Intentar de nuevo",
+    "back": "Volver al menú",
+    "copied": "¡Resultado copiado al portapapeles!"
+  }
+}

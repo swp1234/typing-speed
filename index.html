@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="max-image-preview:large">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
+    <meta name="description" content="타이핑 속도를 측정하세요! WPM(분당 단어수)과 정확도를 테스트하고 당신의 타이핑 실력을 확인하세요. 재미있고 중독성 있는 타이핑 게임!">
+    <meta name="keywords" content="타이핑 게임, 타이핑 테스트, WPM, 속도 측정, 타이핑 연습, 키보드 게임, 재미있는 게임">
+    <meta name="theme-color" content="#4CAF50">
+    <title>타이핑 속도 테스트 ⌨️ - WPM 측정 게임</title>
+    <script src="js/i18n.js"></script>
+    <link rel="canonical" href="https://dopabrain.com/typing-speed/">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icon-192.svg">
+    <link rel="apple-touch-icon" href="icon-192.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Open Graph & Social Media Meta Tags -->
+    <meta property="og:title" content="타이핑 속도 테스트 ⌨️ - 당신의 WPM은?">
+    <meta property="og:description" content="타이핑 속도를 측정하세요! 60초 단어 테스트 또는 문장 모드로 즐기세요. 당신의 타이핑 실력은? 🚀">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dopabrain.com/typing-speed/">
+    <meta property="og:image" content="https://dopabrain.com/typing-speed/icon-512.svg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:type" content="image/svg+xml">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="타이핑 속도 테스트 ⌨️">
+    <meta name="twitter:description" content="60초 안에 몇 개의 단어를 정확하게 타이핑할 수 있을까?">
+    <meta name="twitter:image" content="https://dopabrain.com/typing-speed/icon-512.svg">
+    <meta name="twitter:site" content="@dopabrain">
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "타이핑 속도 테스트",
+      "description": "타이핑 속도를 측정하는 게임. WPM(분당 단어수)과 정확도를 테스트하세요!",
+      "url": "https://dopabrain.com/typing-speed/",
+      "image": "https://dopabrain.com/typing-speed/icon-512.svg",
+      "applicationCategory": "Game",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Modern browser (Chrome, Safari, Firefox, Edge).",
+      "author": {
+        "@type": "Organization",
+        "name": "DopaBrain",
+        "url": "https://dopabrain.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DopaBrain",
+        "url": "https://dopabrain.com/"
+      },
+      "inLanguage": ["ko", "en", "zh", "hi", "ru", "ja", "es", "pt", "id", "tr", "de", "fr"],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW", "availability": "https://schema.org/InStock" },
+      "featureList": "2가지 게임 모드, WPM 측정, 정확도 통계, 상위 퍼센타일 표시, SNS 공유",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "ratingCount": "850",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J8GSWM40TV');</script>
+</head>
+<body>
+    <div class="app-loader" id="app-loader">
+        <div class="loader-content">
+            <div class="loader-emoji">⌨️</div>
+            <div class="loader-spinner"></div>
+            <div class="loader-text" data-i18n="app.loading">로딩 중...</div>
+        </div>
+    </div>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn" id="lang-toggle" title="Select Language">🌐</button>
+        <div class="lang-menu hidden" id="lang-menu">
+            <button class="lang-option" data-lang="ko">🇰🇷 한국어</button>
+            <button class="lang-option" data-lang="en">🇺🇸 English</button>
+            <button class="lang-option" data-lang="ja">🇯🇵 日本語</button>
+            <button class="lang-option" data-lang="zh">🇨🇳 中文</button>
+            <button class="lang-option" data-lang="hi">🇮🇳 हिन्दी</button>
+            <button class="lang-option" data-lang="ru">🇷🇺 Русский</button>
+            <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+            <button class="lang-option" data-lang="pt">🇧🇷 Português</button>
+            <button class="lang-option" data-lang="id">🇮🇩 Indonesia</button>
+            <button class="lang-option" data-lang="tr">🇹🇷 Türkçe</button>
+            <button class="lang-option" data-lang="de">🇩🇪 Deutsch</button>
+            <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Top Ad Banner -->
+        <div class="ad-banner"></div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1 class="app-title">
+                <span class="app-emoji">⌨️</span>
+                <span data-i18n="app.title">타이핑 속도 테스트</span>
+            </h1>
+            <p class="app-subtitle" data-i18n="app.subtitle">당신의 WPM을 측정하세요</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Start Screen -->
+            <div id="start-screen" class="start-screen active">
+                <div class="info-box" data-i18n="start.info">
+                    두 가지 모드에서 당신의 타이핑 속도를 테스트하세요!
+                </div>
+
+                <div class="mode-grid">
+                    <!-- Word Mode -->
+                    <div class="mode-card" data-mode="word">
+                        <div class="mode-emoji">🎯</div>
+                        <div class="mode-title" data-i18n="mode.word">단어 모드</div>
+                        <div class="mode-desc" data-i18n="mode.word.desc">60초 동안 단어 타이핑</div>
+                    </div>
+
+                    <!-- Sentence Mode -->
+                    <div class="mode-card" data-mode="sentence">
+                        <div class="mode-emoji">📝</div>
+                        <div class="mode-title" data-i18n="mode.sentence">문장 모드</div>
+                        <div class="mode-desc" data-i18n="mode.sentence.desc">정해진 문장 완성하기</div>
+                    </div>
+                </div>
+
+                <div class="stats-summary">
+                    <div class="stat-row">
+                        <span class="stat-label" data-i18n="stats.lastWpm">마지막 WPM</span>
+                        <span class="stat-value" id="last-wpm">-</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label" data-i18n="stats.lastAccuracy">마지막 정확도</span>
+                        <span class="stat-value" id="last-accuracy">-</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label" data-i18n="stats.bestWpm">최고 WPM</span>
+                        <span class="stat-value" id="best-wpm">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Screen -->
+            <div id="game-screen" class="game-screen">
+                <div class="timer-display" id="timer-display">60s</div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+
+                <div class="typing-area active">
+                    <div class="typing-display" id="typing-display">
+                        <!-- 타이핑 표시 -->
+                    </div>
+                    <input
+                        type="text"
+                        class="typing-input"
+                        id="typing-input"
+                        placeholder="여기서 타이핑을 시작하세요..."
+                        data-i18n="game.placeholder"
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+                </div>
+
+                <div class="info-box" data-i18n="game.info">
+                    정확하게 타이핑하는 것이 빠르게 타이핑하는 것보다 중요합니다!
+                </div>
+            </div>
+
+            <!-- Result Screen -->
+            <div id="result-screen" class="result-screen">
+                <div class="result-emoji" id="result-emoji">⭐</div>
+                <div class="result-title" id="result-title" data-i18n="result.title">테스트 완료!</div>
+                <div class="result-grade" id="result-grade">A</div>
+
+                <div class="result-percentile" id="result-percentile">
+                    상위 N%
+                </div>
+
+                <div class="result-stats">
+                    <div class="result-stat">
+                        <div class="result-stat-value" id="result-wpm">0</div>
+                        <div class="result-stat-label" data-i18n="result.wpm">WPM</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-stat-value" id="result-accuracy">0%</div>
+                        <div class="result-stat-label" data-i18n="result.accuracy">정확도</div>
+                    </div>
+                </div>
+
+                <button class="share-button" id="share-button" data-i18n="result.share">
+                    🔗 결과 공유하기
+                </button>
+
+                <div class="button-group">
+                    <button class="btn" id="restart-button" data-i18n="result.restart">
+                        다시 도전
+                    </button>
+                    <button class="btn btn-secondary" id="back-button" data-i18n="result.back">
+                        메뉴로
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Ad Banner -->
+        <div class="ad-banner bottom-ad"></div>
+    </div>
+
+    <script src="js/word-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Teste de velocidade de digitação",
+    "subtitle": "Meça seu WPM",
+    "loading": "Carregando..."
+  },
+  "start": {
+    "info": "Teste sua velocidade de digitação em dois modos diferentes!"
+  },
+  "mode": {
+    "word": "Modo de palavras",
+    "word.desc": "Digite palavras por 60 segundos",
+    "sentence": "Modo de sentenças",
+    "sentence.desc": "Complete as sentenças dadas"
+  },
+  "stats": {
+    "lastWpm": "Último WPM",
+    "lastAccuracy": "Última precisão",
+    "bestWpm": "Melhor WPM"
+  },
+  "game": {
+    "placeholder": "Comece a digitar aqui...",
+    "info": "A precisão é mais importante que a velocidade!"
+  },
+  "result": {
+    "title": "Teste concluído!",
+    "percentile": "Top N%",
+    "wpm": "WPM",
+    "accuracy": "Precisão",
+    "share": "🔗 Compartilhar resultado",
+    "restart": "Tentar novamente",
+    "back": "Voltar ao menu",
+    "copied": "Resultado copiado para a área de transferência!"
+  }
+}

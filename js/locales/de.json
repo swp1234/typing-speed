@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Tippgeschwindigkeitstest",
+    "subtitle": "Messen Sie Ihre WPM",
+    "loading": "Lädt..."
+  },
+  "start": {
+    "info": "Testen Sie Ihre Tippgeschwindigkeit in zwei verschiedenen Modi!"
+  },
+  "mode": {
+    "word": "Wortmodus",
+    "word.desc": "Tippen Sie 60 Sekunden lang Wörter",
+    "sentence": "Satzmodus",
+    "sentence.desc": "Vervollständigen Sie die angegebenen Sätze"
+  },
+  "stats": {
+    "lastWpm": "Letztes WPM",
+    "lastAccuracy": "Letzte Genauigkeit",
+    "bestWpm": "Bestes WPM"
+  },
+  "game": {
+    "placeholder": "Beginnen Sie hier zu tippen...",
+    "info": "Genauigkeit ist wichtiger als Geschwindigkeit!"
+  },
+  "result": {
+    "title": "Test abgeschlossen!",
+    "percentile": "Top N%",
+    "wpm": "WPM",
+    "accuracy": "Genauigkeit",
+    "share": "🔗 Ergebnis teilen",
+    "restart": "Erneut versuchen",
+    "back": "Zurück zum Menü",
+    "copied": "Ergebnis in die Zwischenablage kopiert!"
+  }
+}

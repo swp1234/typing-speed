@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Yazma Hızı Testi",
+    "subtitle": "WPM'nizi ölçün",
+    "loading": "Yükleniyor..."
+  },
+  "start": {
+    "info": "Yazma hızınızı iki farklı modda test edin!"
+  },
+  "mode": {
+    "word": "Kelime modu",
+    "word.desc": "60 saniye boyunca kelime yazın",
+    "sentence": "Cümle modu",
+    "sentence.desc": "Verilen cümleleri tamamlayın"
+  },
+  "stats": {
+    "lastWpm": "Son WPM",
+    "lastAccuracy": "Son doğruluk",
+    "bestWpm": "En yüksek WPM"
+  },
+  "game": {
+    "placeholder": "Buradan yazmaya başlayın...",
+    "info": "Hız yazarken doğruluk daha önemlidir!"
+  },
+  "result": {
+    "title": "Test tamamlandı!",
+    "percentile": "İlk N%",
+    "wpm": "WPM",
+    "accuracy": "Doğruluk",
+    "share": "🔗 Sonucu paylaş",
+    "restart": "Tekrar dene",
+    "back": "Menüye dön",
+    "copied": "Sonuç panoya kopyalandı!"
+  }
+}

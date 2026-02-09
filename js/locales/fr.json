@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Test de vitesse de dactylographie",
+    "subtitle": "Mesurez votre WPM",
+    "loading": "Chargement..."
+  },
+  "start": {
+    "info": "Testez votre vitesse de dactylographie dans deux modes différents!"
+  },
+  "mode": {
+    "word": "Mode mots",
+    "word.desc": "Tapez des mots pendant 60 secondes",
+    "sentence": "Mode phrases",
+    "sentence.desc": "Complétez les phrases données"
+  },
+  "stats": {
+    "lastWpm": "Dernier WPM",
+    "lastAccuracy": "Dernière précision",
+    "bestWpm": "Meilleur WPM"
+  },
+  "game": {
+    "placeholder": "Commencez à taper ici...",
+    "info": "La précision est plus importante que la vitesse!"
+  },
+  "result": {
+    "title": "Test terminé!",
+    "percentile": "Top N%",
+    "wpm": "WPM",
+    "accuracy": "Précision",
+    "share": "🔗 Partager le résultat",
+    "restart": "Réessayer",
+    "back": "Retour au menu",
+    "copied": "Résultat copié dans le presse-papiers!"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "타이핑 속도 테스트",
+    "subtitle": "당신의 WPM을 측정하세요",
+    "loading": "로딩 중..."
+  },
+  "start": {
+    "info": "두 가지 모드에서 당신의 타이핑 속도를 테스트하세요!"
+  },
+  "mode": {
+    "word": "단어 모드",
+    "word.desc": "60초 동안 단어 타이핑",
+    "sentence": "문장 모드",
+    "sentence.desc": "정해진 문장 완성하기"
+  },
+  "stats": {
+    "lastWpm": "마지막 WPM",
+    "lastAccuracy": "마지막 정확도",
+    "bestWpm": "최고 WPM"
+  },
+  "game": {
+    "placeholder": "여기서 타이핑을 시작하세요...",
+    "info": "정확하게 타이핑하는 것이 빠르게 타이핑하는 것보다 중요합니다!"
+  },
+  "result": {
+    "title": "테스트 완료!",
+    "percentile": "상위 N%",
+    "wpm": "WPM",
+    "accuracy": "정확도",
+    "share": "🔗 결과 공유하기",
+    "restart": "다시 도전",
+    "back": "메뉴로",
+    "copied": "결과가 클립보드에 복사되었습니다!"
+  }
+}

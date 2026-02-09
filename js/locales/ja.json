@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "タイピング速度テスト",
+    "subtitle": "あなたのWPMを測定してください",
+    "loading": "読み込み中..."
+  },
+  "start": {
+    "info": "2つのモードであなたのタイピング速度をテストしてください!"
+  },
+  "mode": {
+    "word": "単語モード",
+    "word.desc": "60秒間単語をタイピング",
+    "sentence": "文章モード",
+    "sentence.desc": "与えられた文を完成させる"
+  },
+  "stats": {
+    "lastWpm": "前回のWPM",
+    "lastAccuracy": "前回の精度",
+    "bestWpm": "最高WPM"
+  },
+  "game": {
+    "placeholder": "ここからタイピングを開始してください...",
+    "info": "速くタイピングすることより、正確にタイピングすることが重要です!"
+  },
+  "result": {
+    "title": "テスト完了!",
+    "percentile": "上位N%",
+    "wpm": "WPM",
+    "accuracy": "精度",
+    "share": "🔗 結果を共有",
+    "restart": "もう一度試す",
+    "back": "メニューに戻る",
+    "copied": "結果がクリップボードにコピーされました!"
+  }
+}

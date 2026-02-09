@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Typing Speed Test",
+    "subtitle": "Measure your WPM",
+    "loading": "Loading..."
+  },
+  "start": {
+    "info": "Test your typing speed in two different modes!"
+  },
+  "mode": {
+    "word": "Word Mode",
+    "word.desc": "Type words for 60 seconds",
+    "sentence": "Sentence Mode",
+    "sentence.desc": "Complete given sentences"
+  },
+  "stats": {
+    "lastWpm": "Last WPM",
+    "lastAccuracy": "Last Accuracy",
+    "bestWpm": "Best WPM"
+  },
+  "game": {
+    "placeholder": "Start typing here...",
+    "info": "Accuracy is more important than speed!"
+  },
+  "result": {
+    "title": "Test Complete!",
+    "percentile": "Top N%",
+    "wpm": "WPM",
+    "accuracy": "Accuracy",
+    "share": "🔗 Share Result",
+    "restart": "Try Again",
+    "back": "Back to Menu",
+    "copied": "Result copied to clipboard!"
+  }
+}
