@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="max-image-preview:large">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
     <meta name="description" content="타이핑 속도를 측정하세요! WPM(분당 단어수)과 정확도를 테스트하고 당신의 타이핑 실력을 확인하세요. 재미있고 중독성 있는 타이핑 게임!">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
     <meta name="keywords" content="타이핑 게임, 타이핑 테스트, WPM, 속도 측정, 타이핑 연습, 키보드 게임, 재미있는 게임">
     <meta name="theme-color" content="#4CAF50">
     <title>타이핑 속도 테스트 ⌨️ - WPM 측정 게임</title>
-    <script src="js/i18n.js"></script>
     <link rel="canonical" href="https://dopabrain.com/typing-speed/">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="icon-192.svg">
     <link rel="apple-touch-icon" href="icon-192.svg">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <!-- Prefetch app scripts -->
+    <link rel="prefetch" href="js/word-data.js">
+    <link rel="prefetch" href="js/app.js">
+    <script src="js/i18n.js" defer></script>
     <!-- Open Graph & Social Media Meta Tags -->
     <meta property="og:title" content="타이핑 속도 테스트 ⌨️ - 당신의 WPM은?">
     <meta property="og:description" content="타이핑 속도를 측정하세요! 60초 단어 테스트 또는 문장 모드로 즐기세요. 당신의 타이핑 실력은? 🚀">
@@ -289,7 +294,7 @@
         </footer>
     </div>
 
-    <script src="js/word-data.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/word-data.js" defer></script>
+    <script src="js/app.js" defer></script>
 </body>
 </html>
