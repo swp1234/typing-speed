@@ -288,13 +288,14 @@ class TypingSpeedTest {
     }
 
     shareResult() {
-        const text = `타이핑 속도: ${this.wpm} WPM / 정확도: ${this.accuracy.toFixed(1)}% (등급: ${this.getGrade()}) - 도전해보세요!`;
+        const shareTemplate = window.i18n?.t('share.text') || 'Typing Speed: {wpm} WPM / Accuracy: {accuracy}% (Grade: {grade}) - Try it!';
+        const text = shareTemplate.replace('{wpm}', this.wpm).replace('{accuracy}', this.accuracy.toFixed(1)).replace('{grade}', this.getGrade());
         const url = window.location.href;
 
         // 웹 공유 API 사용 (지원하는 경우)
         if (navigator.share) {
             navigator.share({
-                title: '타이핑 속도 테스트',
+                title: window.i18n?.t('share.title') || 'Typing Speed Test',
                 text: text,
                 url: url
             }).catch(() => { /* 사용자가 취소한 경우 */ });

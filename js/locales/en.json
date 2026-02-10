@@ -31,5 +31,9 @@
     "restart": "Try Again",
     "back": "Back to Menu",
     "copied": "Result copied to clipboard!"
+  },
+  "share": {
+    "text": "Typing Speed: {wpm} WPM / Accuracy: {accuracy}% (Grade: {grade}) - Try it!",
+    "title": "Typing Speed Test"
   }
 }
