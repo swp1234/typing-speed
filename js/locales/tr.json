@@ -31,5 +31,9 @@
     "restart": "Tekrar dene",
     "back": "Menüye dön",
     "copied": "Sonuç panoya kopyalandı!"
+  },
+  "share": {
+    "text": "Yazma Hızı: {wpm} WPM / Doğruluk: {accuracy}% (Not: {grade}) - Dene!",
+    "title": "Yazma Hızı Testi"
   }
 }

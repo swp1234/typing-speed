@@ -31,5 +31,9 @@
     "restart": "Réessayer",
     "back": "Retour au menu",
     "copied": "Résultat copié dans le presse-papiers!"
+  },
+  "share": {
+    "text": "Vitesse de dactylographie: {wpm} WPM / Précision: {accuracy}% (Note: {grade}) - Essayez!",
+    "title": "Test de vitesse de dactylographie"
   }
 }

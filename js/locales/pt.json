@@ -31,5 +31,9 @@
     "restart": "Tentar novamente",
     "back": "Voltar ao menu",
     "copied": "Resultado copiado para a área de transferência!"
+  },
+  "share": {
+    "text": "Velocidade de digitação: {wpm} WPM / Precisão: {accuracy}% (Nota: {grade}) - Tente!",
+    "title": "Teste de velocidade de digitação"
   }
 }

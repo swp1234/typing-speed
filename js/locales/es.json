@@ -31,5 +31,9 @@
     "restart": "Intentar de nuevo",
     "back": "Volver al menú",
     "copied": "¡Resultado copiado al portapapeles!"
+  },
+  "share": {
+    "text": "Velocidad de escritura: {wpm} WPM / Precisión: {accuracy}% (Calificación: {grade}) - ¡Inténtalo!",
+    "title": "Prueba de velocidad de escritura"
   }
 }

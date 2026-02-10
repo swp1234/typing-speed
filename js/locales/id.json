@@ -31,5 +31,9 @@
     "restart": "Coba lagi",
     "back": "Kembali ke menu",
     "copied": "Hasil disalin ke papan klip!"
+  },
+  "share": {
+    "text": "Kecepatan mengetik: {wpm} WPM / Akurasi: {accuracy}% (Nilai: {grade}) - Coba sekarang!",
+    "title": "Tes kecepatan mengetik"
   }
 }

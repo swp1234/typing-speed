@@ -31,5 +31,9 @@
     "restart": "重新尝试",
     "back": "返回菜单",
     "copied": "结果已复制到剪贴板!"
+  },
+  "share": {
+    "text": "打字速度: {wpm} WPM / 准确度: {accuracy}% (等级: {grade}) - 尝试一下!",
+    "title": "打字速度测试"
   }
 }

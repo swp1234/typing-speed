@@ -31,5 +31,9 @@
     "restart": "Erneut versuchen",
     "back": "Zurück zum Menü",
     "copied": "Ergebnis in die Zwischenablage kopiert!"
+  },
+  "share": {
+    "text": "Tippgeschwindigkeit: {wpm} WPM / Genauigkeit: {accuracy}% (Bewertung: {grade}) - Probieren Sie es!",
+    "title": "Tippgeschwindigkeitstest"
   }
 }
