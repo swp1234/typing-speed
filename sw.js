@@ -1,5 +1,5 @@
 // Typing Speed Test - Service Worker
-const CACHE_NAME = 'typing-speed-v1';
+const CACHE_NAME = 'typing-speed-v2';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -48,25 +48,27 @@ self.addEventListener('activate', event => {
     );
 });
 
-// Fetch event - Cache First strategy
+// Fetch event - network first, fallback to cache
 self.addEventListener('fetch', event => {
+    if (event.request.method !== 'GET') return;
+
+    // Skip external requests (ads, analytics, etc.)
+    if (!event.request.url.startsWith(self.location.origin)) return;
+
     event.respondWith(
-        caches.match(event.request)
+        fetch(event.request)
             .then(response => {
-                if (response) {
-                    // Cache hit - return cached version, but also fetch update
-                    fetch(event.request).then(fetchResponse => {
-                        if (fetchResponse && fetchResponse.status === 200) {
-                            caches.open(CACHE_NAME).then(cache => {
-                                cache.put(event.request, fetchResponse);
-                            });
-                        }
-                    }).catch(() => {});
-                    return response;
+                if (response && response.status === 200) {
+                    const responseToCache = response.clone();
+                    caches.open(CACHE_NAME).then(cache => {
+                        cache.put(event.request, responseToCache);
+                    });
                 }
-                return fetch(event.request).catch(() => {
-                    return new Response('Offline', { status: 503 });
-                });
+                return response;
+            })
+            .catch(() => {
+                return caches.match(event.request)
+                    .then(cached => cached || caches.match('./index.html'));
             })
     );
 });
