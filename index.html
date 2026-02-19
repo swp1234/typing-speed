@@ -297,5 +297,12 @@
     <script src="js/word-data.js" defer></script>
     <script src="js/app.js" defer></script>
     <script src="/portal/js/cross-promo.js" defer></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
 </body>
 </html>
