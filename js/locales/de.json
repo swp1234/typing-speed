@@ -2,7 +2,8 @@
   "app": {
     "title": "Tippgeschwindigkeitstest",
     "subtitle": "Messen Sie Ihre WPM",
-    "loading": "Lädt..."
+    "loading": "Lädt...",
+    "skipLink": "Zum Inhalt"
   },
   "start": {
     "info": "Testen Sie Ihre Tippgeschwindigkeit in zwei verschiedenen Modi!"
@@ -25,12 +26,16 @@
   "result": {
     "title": "Test abgeschlossen!",
     "percentile": "Top N%",
+    "top": "Top",
     "wpm": "WPM",
     "accuracy": "Genauigkeit",
     "share": "🔗 Ergebnis teilen",
     "restart": "Erneut versuchen",
     "back": "Zurück zum Menü",
     "copied": "Ergebnis in die Zwischenablage kopiert!"
+  },
+  "rec": {
+    "title": "Probier auch das"
   },
   "share": {
     "text": "Tippgeschwindigkeit: {wpm} WPM / Genauigkeit: {accuracy}% (Bewertung: {grade}) - Probieren Sie es!",

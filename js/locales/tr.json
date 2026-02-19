@@ -2,7 +2,8 @@
   "app": {
     "title": "Yazma Hızı Testi",
     "subtitle": "WPM'nizi ölçün",
-    "loading": "Yükleniyor..."
+    "loading": "Yükleniyor...",
+    "skipLink": "İçeriğe geç"
   },
   "start": {
     "info": "Yazma hızınızı iki farklı modda test edin!"
@@ -25,12 +26,16 @@
   "result": {
     "title": "Test tamamlandı!",
     "percentile": "İlk N%",
+    "top": "En iyi",
     "wpm": "WPM",
     "accuracy": "Doğruluk",
     "share": "🔗 Sonucu paylaş",
     "restart": "Tekrar dene",
     "back": "Menüye dön",
     "copied": "Sonuç panoya kopyalandı!"
+  },
+  "rec": {
+    "title": "Bunları da deneyin"
   },
   "share": {
     "text": "Yazma Hızı: {wpm} WPM / Doğruluk: {accuracy}% (Not: {grade}) - Dene!",

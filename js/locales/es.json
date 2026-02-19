@@ -2,7 +2,8 @@
   "app": {
     "title": "Prueba de velocidad de escritura",
     "subtitle": "Mide tu WPM",
-    "loading": "Cargando..."
+    "loading": "Cargando...",
+    "skipLink": "Ir al contenido"
   },
   "start": {
     "info": "¡Prueba tu velocidad de escritura en dos modos diferentes!"
@@ -25,12 +26,16 @@
   "result": {
     "title": "¡Prueba completada!",
     "percentile": "Top N%",
+    "top": "Top",
     "wpm": "WPM",
     "accuracy": "Precisión",
     "share": "🔗 Compartir resultado",
     "restart": "Intentar de nuevo",
     "back": "Volver al menú",
     "copied": "¡Resultado copiado al portapapeles!"
+  },
+  "rec": {
+    "title": "Prueba también"
   },
   "share": {
     "text": "Velocidad de escritura: {wpm} WPM / Precisión: {accuracy}% (Calificación: {grade}) - ¡Inténtalo!",

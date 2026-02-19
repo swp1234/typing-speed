@@ -2,7 +2,8 @@
   "app": {
     "title": "타이핑 속도 테스트",
     "subtitle": "당신의 WPM을 측정하세요",
-    "loading": "로딩 중..."
+    "loading": "로딩 중...",
+    "skipLink": "본문으로 이동"
   },
   "start": {
     "info": "두 가지 모드에서 당신의 타이핑 속도를 테스트하세요!"
@@ -25,12 +26,16 @@
   "result": {
     "title": "테스트 완료!",
     "percentile": "상위 N%",
+    "top": "상위",
     "wpm": "WPM",
     "accuracy": "정확도",
     "share": "🔗 결과 공유하기",
     "restart": "다시 도전",
     "back": "메뉴로",
     "copied": "결과가 클립보드에 복사되었습니다!"
+  },
+  "rec": {
+    "title": "이것도 해보세요"
   },
   "share": {
     "text": "타이핑 속도: {wpm} WPM / 정확도: {accuracy}% (등급: {grade}) - 도전해보세요!",

@@ -2,7 +2,8 @@
   "app": {
     "title": "Test de vitesse de dactylographie",
     "subtitle": "Mesurez votre WPM",
-    "loading": "Chargement..."
+    "loading": "Chargement...",
+    "skipLink": "Aller au contenu"
   },
   "start": {
     "info": "Testez votre vitesse de dactylographie dans deux modes différents!"
@@ -25,12 +26,16 @@
   "result": {
     "title": "Test terminé!",
     "percentile": "Top N%",
+    "top": "Top",
     "wpm": "WPM",
     "accuracy": "Précision",
     "share": "🔗 Partager le résultat",
     "restart": "Réessayer",
     "back": "Retour au menu",
     "copied": "Résultat copié dans le presse-papiers!"
+  },
+  "rec": {
+    "title": "Essayez aussi"
   },
   "share": {
     "text": "Vitesse de dactylographie: {wpm} WPM / Précision: {accuracy}% (Note: {grade}) - Essayez!",

@@ -2,7 +2,8 @@
   "app": {
     "title": "Teste de velocidade de digitação",
     "subtitle": "Meça seu WPM",
-    "loading": "Carregando..."
+    "loading": "Carregando...",
+    "skipLink": "Ir para o conteúdo"
   },
   "start": {
     "info": "Teste sua velocidade de digitação em dois modos diferentes!"
@@ -25,12 +26,16 @@
   "result": {
     "title": "Teste concluído!",
     "percentile": "Top N%",
+    "top": "Top",
     "wpm": "WPM",
     "accuracy": "Precisão",
     "share": "🔗 Compartilhar resultado",
     "restart": "Tentar novamente",
     "back": "Voltar ao menu",
     "copied": "Resultado copiado para a área de transferência!"
+  },
+  "rec": {
+    "title": "Experimente também"
   },
   "share": {
     "text": "Velocidade de digitação: {wpm} WPM / Precisão: {accuracy}% (Nota: {grade}) - Tente!",

@@ -289,7 +289,7 @@ class TypingSpeedTest {
         this.resultTitle.setAttribute('data-i18n', 'result.title');
         this.resultTitle.textContent = i18n.t('result.title');
         this.resultGrade.textContent = grade;
-        this.resultPercentile.innerHTML = `${i18n.t('result.percentile')}: <strong>Top ${percentile}%</strong>`;
+        this.resultPercentile.innerHTML = `${i18n.t('result.percentile')}: <strong>${(i18n.t('result.top') || 'Top')} ${percentile}%</strong>`;
 
         this.resultWpm.parentElement.innerHTML = `
             <div class="result-stat-value">${this.wpm}</div>
