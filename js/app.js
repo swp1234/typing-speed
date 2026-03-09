@@ -263,8 +263,18 @@ class TypingSpeedTest {
         const prevBest = parseInt(localStorage.getItem('typing_bestWPM') || '0', 10);
         if (this.wpm > prevBest) localStorage.setItem('typing_bestWPM', this.wpm.toString());
 
+        // Track games played
+        const tsGames = parseInt(localStorage.getItem('typing_gamesPlayed')) || 0;
+        localStorage.setItem('typing_gamesPlayed', tsGames + 1);
+
         // Report to daily streak system
         if (typeof DailyStreak !== 'undefined') DailyStreak.report(this.wpm);
+
+        // Report achievements
+        if (typeof GameAchievements !== 'undefined') GameAchievements.report({
+            bestWPM: parseInt(localStorage.getItem('typing_bestWPM')) || 0,
+            gamesPlayed: parseInt(localStorage.getItem('typing_gamesPlayed')) || 0
+        });
     }
 
     displayResults() {
@@ -444,6 +454,19 @@ async function initApp() {
         if (typeof DailyStreak !== 'undefined') {
             DailyStreak.init({ gameId: 'typing-speed', bestScoreKey: 'typing_bestWPM', minTarget: 20, unit: 'WPM' });
         }
+
+        if (typeof GameAchievements !== 'undefined') GameAchievements.init({
+            gameId: 'typing-speed',
+            defs: [
+                { id: 'wpm_20', stat: 'bestWPM', target: 20, icon: '\u2328\uFE0F', name: 'Beginner Typist' },
+                { id: 'wpm_40', stat: 'bestWPM', target: 40, icon: '\u2328\uFE0F', name: 'Typist' },
+                { id: 'wpm_60', stat: 'bestWPM', target: 60, icon: '\u2328\uFE0F', name: 'Speed Demon' },
+                { id: 'wpm_80', stat: 'bestWPM', target: 80, icon: '\u2328\uFE0F', name: 'Keyboard Master' },
+                { id: 'wpm_100', stat: 'bestWPM', target: 100, icon: '\u2328\uFE0F', name: 'Legend' },
+                { id: 'games_10', stat: 'gamesPlayed', target: 10, icon: '\uD83C\uDFAE', name: 'Regular' },
+                { id: 'games_50', stat: 'gamesPlayed', target: 50, icon: '\uD83C\uDFAE', name: 'Dedicated' },
+            ]
+        });
 
         // Loader 숨김
         setTimeout(() => {
