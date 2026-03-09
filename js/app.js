@@ -163,7 +163,10 @@ class TypingSpeedTest {
         this.timerDisplay.textContent = `${this.timeRemaining}s`;
 
         // 시간 경고 상태 + shake at 10s
-        if (this.timeRemaining === 10) this.shakeElement(this.timerDisplay);
+        if (this.timeRemaining === 10) {
+            this.shakeElement(this.timerDisplay);
+            if (typeof Haptic !== 'undefined') Haptic.medium();
+        }
         if (this.timeRemaining <= 10) {
             this.timerDisplay.classList.add('danger');
             this.timerDisplay.classList.remove('warning');
@@ -265,6 +268,12 @@ class TypingSpeedTest {
     }
 
     displayResults() {
+        // Haptic feedback on test complete
+        if (typeof Haptic !== 'undefined') {
+            if (this.wpm >= 60) Haptic.success();
+            else Haptic.light();
+        }
+
         // 등급 결정
         let grade = 'F';
         let emoji = '😅';
