@@ -339,6 +339,23 @@ class TypingSpeedTest {
             <div class="result-stat-value">${this.accuracy.toFixed(1)}%</div>
             <div class="result-stat-label" data-i18n="result.accuracy">${i18n.t('result.accuracy')}</div>
         `;
+
+        // Inject rewarded ad button for 2x WPM score
+        if (typeof GameAds !== 'undefined') {
+            const originalWpm = this.wpm;
+            GameAds.injectRewardButton({
+                container: '#result-screen',
+                label: '📺 Watch Ad for 2x WPM Score',
+                onReward: () => {
+                    this.wpm = originalWpm * 2;
+                    const wpmEl = document.querySelector('#result-screen .result-stat-value');
+                    if (wpmEl) wpmEl.textContent = this.wpm;
+                    // Update best WPM if doubled score is higher
+                    const prevBest = parseInt(localStorage.getItem('typing_bestWPM') || '0', 10);
+                    if (this.wpm > prevBest) localStorage.setItem('typing_bestWPM', this.wpm.toString());
+                }
+            });
+        }
     }
 
     shareResult() {
@@ -380,6 +397,7 @@ class TypingSpeedTest {
         this.testStarted = false;
         if (this.timerInterval) clearInterval(this.timerInterval);
 
+        if (typeof GameAds !== 'undefined') GameAds.removeRewardButton('#result-screen');
         this.resultScreen.classList.remove('active');
         this.startScreen.classList.add('active');
     }
