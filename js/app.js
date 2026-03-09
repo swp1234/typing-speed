@@ -255,6 +255,13 @@ class TypingSpeedTest {
         // 정확도 적용한 조정 WPM
         const adjustedWpm = Math.round(this.wpm * (this.accuracy / 100));
         this.wpm = Math.max(0, adjustedWpm);
+
+        // Save best WPM to localStorage
+        const prevBest = parseInt(localStorage.getItem('typing_bestWPM') || '0', 10);
+        if (this.wpm > prevBest) localStorage.setItem('typing_bestWPM', this.wpm.toString());
+
+        // Report to daily streak system
+        if (typeof DailyStreak !== 'undefined') DailyStreak.report(this.wpm);
     }
 
     displayResults() {
@@ -423,6 +430,11 @@ async function initApp() {
 
         // 앱 인스턴스 생성
         window.app = new TypingSpeedTest();
+
+        // Initialize daily streak system
+        if (typeof DailyStreak !== 'undefined') {
+            DailyStreak.init({ gameId: 'typing-speed', bestScoreKey: 'typing_bestWPM', minTarget: 20, unit: 'WPM' });
+        }
 
         // Loader 숨김
         setTimeout(() => {
