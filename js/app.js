@@ -220,11 +220,19 @@ class TypingSpeedTest {
         // 결과 계산
         this.calculateResults();
 
-        // 화면 전환
-        this.gameScreen.classList.remove('active');
-        this.resultScreen.classList.add('active');
+        const showResult = () => {
+            // 화면 전환
+            this.gameScreen.classList.remove('active');
+            this.resultScreen.classList.add('active');
 
-        this.displayResults();
+            this.displayResults();
+        };
+
+        if (typeof GameAds !== 'undefined') {
+            GameAds.showInterstitial({ onComplete: showResult });
+        } else {
+            showResult();
+        }
     }
 
     calculateResults() {
@@ -449,6 +457,9 @@ async function initApp() {
 
         // 앱 인스턴스 생성
         window.app = new TypingSpeedTest();
+
+        // Initialize game ads
+        if (typeof GameAds !== 'undefined') GameAds.init();
 
         // Initialize daily streak system
         if (typeof DailyStreak !== 'undefined') {
