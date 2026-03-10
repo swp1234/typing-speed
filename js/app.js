@@ -127,6 +127,8 @@ class TypingSpeedTest {
     handleTyping() {
         const input = this.typingInput.value;
 
+        if (window.sfx) window.sfx.play('key');
+
         // 첫 글자 입력 시 타이머 시작
         if (!this.testStarted && input.length > 0) {
             this.testStarted = true;
@@ -162,9 +164,12 @@ class TypingSpeedTest {
     updateTimer() {
         this.timerDisplay.textContent = `${this.timeRemaining}s`;
 
+        if (window.sfx && this.timeRemaining <= 10) window.sfx.play('tick');
+
         // 시간 경고 상태 + shake at 10s
         if (this.timeRemaining === 10) {
             this.shakeElement(this.timerDisplay);
+            if (window.sfx) window.sfx.play('warning');
             if (typeof Haptic !== 'undefined') Haptic.medium();
         }
         if (this.timeRemaining <= 10) {
@@ -272,6 +277,7 @@ class TypingSpeedTest {
         if (this.wpm > prevBest) {
             localStorage.setItem('typing_bestWPM', this.wpm.toString());
             this.showNewBest();
+            if (window.sfx) window.sfx.play('newbest');
         }
 
         // Track games played
@@ -321,6 +327,12 @@ class TypingSpeedTest {
 
         // 상위 N% 계산 (실제로는 더 정교한 통계 필요)
         const percentile = Math.max(5, 100 - Math.floor(this.wpm * 0.5));
+
+        // SFX based on grade
+        if (window.sfx) {
+            if (grade === 'S') window.sfx.play('grade_s');
+            else window.sfx.play('complete');
+        }
 
         // Confetti + floating WPM for good scores
         if (this.wpm >= 60) this.spawnConfetti();

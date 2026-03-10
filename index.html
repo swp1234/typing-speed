@@ -106,6 +106,11 @@
         </div>
     </div>
 
+    <!-- Sound Toggle -->
+    <button class="sound-toggle" id="sound-toggle" onclick="if(window.sfx)window.sfx.resume();const enabled=window.sfx?window.sfx.toggle():false;this.textContent=enabled?'🔊':'🔇';" title="Toggle Sound">🔊</button>
+
+    <style>.sound-toggle{position:fixed;top:12px;right:92px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:18px;cursor:pointer;z-index:100;display:flex;align-items:center;justify-content:center;transition:background 0.2s;backdrop-filter:blur(8px)}.sound-toggle:hover{background:rgba(255,255,255,0.2)}.sound-toggle:active{transform:scale(0.95)}[data-theme="light"] .sound-toggle{background:rgba(0,0,0,0.06);border-color:rgba(0,0,0,0.12);color:#333}</style>
+
     <!-- Theme Toggle -->
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☀️</button>
 
@@ -296,6 +301,7 @@
         </footer>
     </div>
 
+    <script src="js/sound-engine.js"></script>
     <script src="js/word-data.js" defer></script>
     <script src="/portal/js/haptic.js"></script>
     <script src="/portal/js/daily-streak.js"></script>
@@ -306,7 +312,7 @@
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
+    navigator.serviceWorker.register('sw.js').catch(() => {});
   });
 }
 </script>
