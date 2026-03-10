@@ -40,5 +40,12 @@
   "share": {
     "text": "Kecepatan mengetik: {wpm} WPM / Akurasi: {accuracy}% (Nilai: {grade}) - Coba sekarang!",
     "title": "Tes kecepatan mengetik"
-  }
+  },
+  "difficulty.title": "Pilih Kesulitan",
+  "difficulty.easy": "Mudah",
+  "difficulty.easy.desc": "90d / 20 kata",
+  "difficulty.normal": "Normal",
+  "difficulty.normal.desc": "60d / 30 kata",
+  "difficulty.hard": "Sulit",
+  "difficulty.hard.desc": "30d / 40 kata"
 }

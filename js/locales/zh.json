@@ -40,5 +40,12 @@
   "share": {
     "text": "打字速度: {wpm} WPM / 准确度: {accuracy}% (等级: {grade}) - 尝试一下!",
     "title": "打字速度测试"
-  }
+  },
+  "difficulty.title": "选择难度",
+  "difficulty.easy": "简单",
+  "difficulty.easy.desc": "90秒 / 20词",
+  "difficulty.normal": "普通",
+  "difficulty.normal.desc": "60秒 / 30词",
+  "difficulty.hard": "困难",
+  "difficulty.hard.desc": "30秒 / 40词"
 }

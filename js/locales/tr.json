@@ -40,5 +40,12 @@
   "share": {
     "text": "Yazma Hızı: {wpm} WPM / Doğruluk: {accuracy}% (Not: {grade}) - Dene!",
     "title": "Yazma Hızı Testi"
-  }
+  },
+  "difficulty.title": "Zorluk Seçin",
+  "difficulty.easy": "Kolay",
+  "difficulty.easy.desc": "90sn / 20 kelime",
+  "difficulty.normal": "Normal",
+  "difficulty.normal.desc": "60sn / 30 kelime",
+  "difficulty.hard": "Zor",
+  "difficulty.hard.desc": "30sn / 40 kelime"
 }

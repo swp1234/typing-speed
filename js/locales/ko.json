@@ -40,5 +40,12 @@
   "share": {
     "text": "타이핑 속도: {wpm} WPM / 정확도: {accuracy}% (등급: {grade}) - 도전해보세요!",
     "title": "타이핑 속도 테스트"
-  }
+  },
+  "difficulty.title": "난이도 선택",
+  "difficulty.easy": "쉬움",
+  "difficulty.easy.desc": "90초 / 20단어",
+  "difficulty.normal": "보통",
+  "difficulty.normal.desc": "60초 / 30단어",
+  "difficulty.hard": "어려움",
+  "difficulty.hard.desc": "30초 / 40단어"
 }

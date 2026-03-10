@@ -40,5 +40,12 @@
   "share": {
     "text": "Typing Speed: {wpm} WPM / Accuracy: {accuracy}% (Grade: {grade}) - Try it!",
     "title": "Typing Speed Test"
-  }
+  },
+  "difficulty.title": "Select Difficulty",
+  "difficulty.easy": "Easy",
+  "difficulty.easy.desc": "90s / 20 words",
+  "difficulty.normal": "Normal",
+  "difficulty.normal.desc": "60s / 30 words",
+  "difficulty.hard": "Hard",
+  "difficulty.hard.desc": "30s / 40 words"
 }

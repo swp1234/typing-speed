@@ -40,5 +40,12 @@
   "share": {
     "text": "タイピング速度: {wpm} WPM / 精度: {accuracy}% (評価: {grade}) - 試してみてください!",
     "title": "タイピング速度テスト"
-  }
+  },
+  "difficulty.title": "難易度を選択",
+  "difficulty.easy": "簡単",
+  "difficulty.easy.desc": "90秒 / 20語",
+  "difficulty.normal": "普通",
+  "difficulty.normal.desc": "60秒 / 30語",
+  "difficulty.hard": "難しい",
+  "difficulty.hard.desc": "30秒 / 40語"
 }

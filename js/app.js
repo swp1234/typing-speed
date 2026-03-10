@@ -11,7 +11,8 @@ class TypingSpeedTest {
         this.incorrectWords = 0;
         this.wpm = 0;
         this.accuracy = 0;
-        this.timeLimit = 60; // Word mode 60초
+        this.difficulty = 'normal'; // easy, normal, hard
+        this.timeLimit = 60;
         this.timeRemaining = 60;
         this.timerInterval = null;
         this.testStarted = false;
@@ -64,11 +65,28 @@ class TypingSpeedTest {
             });
         }
 
-        // 모드 선택
+        // 모드 선택 — show difficulty picker for word mode, start directly for sentence
         this.modeButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const mode = btn.getAttribute('data-mode');
-                this.startGame(mode);
+                this.pendingMode = mode;
+                if (mode === 'word') {
+                    const diffSelect = document.getElementById('difficulty-select');
+                    if (diffSelect) {
+                        diffSelect.classList.remove('hidden');
+                        diffSelect.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    this.startGame(mode);
+                }
+            });
+        });
+
+        // Difficulty selection
+        document.querySelectorAll('.difficulty-card').forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.difficulty = btn.getAttribute('data-difficulty');
+                this.startGame(this.pendingMode || 'word');
             });
         });
 
@@ -106,14 +124,23 @@ class TypingSpeedTest {
         this.gameState = mode === 'word' ? 'word-mode' : 'sentence-mode';
         this.testStarted = false;
         this.typedText = '';
-        this.timeRemaining = mode === 'word' ? 60 : 0;
+
+        // Difficulty-based settings for word mode
+        const diffConfig = { easy: { time: 90, words: 20 }, normal: { time: 60, words: 30 }, hard: { time: 30, words: 40 } };
+        const config = diffConfig[this.difficulty] || diffConfig.normal;
+        this.timeLimit = mode === 'word' ? config.time : 0;
+        this.timeRemaining = this.timeLimit;
 
         // 테스트 텍스트 생성
         if (mode === 'word') {
-            this.testText = wordData.getRandomWords(30);
+            this.testText = wordData.getRandomWords(config.words);
         } else {
             this.testText = wordData.getRandomSentences(3, i18n.currentLang === 'ko');
         }
+
+        // Hide difficulty select
+        const diffSelect = document.getElementById('difficulty-select');
+        if (diffSelect) diffSelect.classList.add('hidden');
 
         // 화면 전환
         this.startScreen.classList.remove('active');
@@ -260,7 +287,7 @@ class TypingSpeedTest {
         this.accuracy = this.wordCount > 0 ? (this.correctWords / this.wordCount) * 100 : 0;
 
         // 시간 계산 (분 단위)
-        const timeMs = this.mode === 'word' ? (60 - this.timeRemaining) * 1000 : this.endTime - this.startTime;
+        const timeMs = this.mode === 'word' ? (this.timeLimit - this.timeRemaining) * 1000 : this.endTime - this.startTime;
         const timeMin = timeMs / 1000 / 60;
 
         // WPM 계산 (단어: 5글자)

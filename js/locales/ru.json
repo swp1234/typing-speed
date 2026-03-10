@@ -40,5 +40,12 @@
   "share": {
     "text": "Скорость печати: {wpm} WPM / Точность: {accuracy}% (Оценка: {grade}) - Попробуйте!",
     "title": "Тест скорости печати"
-  }
+  },
+  "difficulty.title": "Выберите сложность",
+  "difficulty.easy": "Легко",
+  "difficulty.easy.desc": "90с / 20 слов",
+  "difficulty.normal": "Обычно",
+  "difficulty.normal.desc": "60с / 30 слов",
+  "difficulty.hard": "Сложно",
+  "difficulty.hard.desc": "30с / 40 слов"
 }
