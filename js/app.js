@@ -269,7 +269,10 @@ class TypingSpeedTest {
 
         // Save best WPM to localStorage
         const prevBest = parseInt(localStorage.getItem('typing_bestWPM') || '0', 10);
-        if (this.wpm > prevBest) localStorage.setItem('typing_bestWPM', this.wpm.toString());
+        if (this.wpm > prevBest) {
+            localStorage.setItem('typing_bestWPM', this.wpm.toString());
+            this.showNewBest();
+        }
 
         // Track games played
         const tsGames = parseInt(localStorage.getItem('typing_gamesPlayed')) || 0;
@@ -409,6 +412,23 @@ class TypingSpeedTest {
     shakeElement(el) {
         el.style.animation = 'ts-shake 0.4s ease';
         setTimeout(() => { el.style.animation = ''; }, 450);
+    }
+
+    showNewBest() {
+        let el = document.getElementById('new-best-flash');
+        if (!el) {
+            el = document.createElement('div');
+            el.id = 'new-best-flash';
+            el.style.cssText = 'position:fixed;top:20%;left:50%;transform:translate(-50%,-50%) scale(0);font-size:32px;font-weight:800;color:#fbbf24;text-shadow:0 0 30px rgba(251,191,36,0.6);pointer-events:none;z-index:200;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),opacity 0.4s;opacity:0;white-space:nowrap;';
+            document.body.appendChild(el);
+        }
+        el.textContent = '⚡ NEW BEST!';
+        el.style.transform = 'translate(-50%,-50%) scale(1.2)';
+        el.style.opacity = '1';
+        setTimeout(() => {
+            el.style.transform = 'translate(-50%,-50%) scale(0.8)';
+            el.style.opacity = '0';
+        }, 1200);
     }
 
     showFloatingWpm(wpm, grade) {
