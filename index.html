@@ -13,6 +13,8 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="icon-192.svg">
     <link rel="apple-touch-icon" href="icon-192.svg">
+    <!-- Restore theme before render to prevent FOUC -->
+    <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
     <link rel="stylesheet" href="css/style.css">
     <!-- Preload critical resources -->
     <link rel="preload" href="css/style.css" as="style">

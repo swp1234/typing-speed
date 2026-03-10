@@ -730,6 +730,58 @@ button {
     border-color: rgba(76, 175, 80, 0.4);
 }
 
+[data-theme="light"] .lang-btn {
+    background: rgba(76, 175, 80, 0.1);
+    border-color: rgba(76, 175, 80, 0.2);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .lang-btn:hover {
+    background: rgba(76, 175, 80, 0.2);
+}
+
+[data-theme="light"] .lang-menu {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-color: rgba(76, 175, 80, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .lang-option {
+    color: var(--text-secondary);
+}
+
+[data-theme="light"] .lang-option:hover {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .lang-option.active {
+    background: rgba(76, 175, 80, 0.15);
+    color: var(--primary);
+}
+
+[data-theme="light"] .typing-word.current {
+    background: rgba(76, 175, 80, 0.15);
+    border-color: var(--primary);
+}
+
+[data-theme="light"] .typing-word.pending {
+    color: var(--text-secondary);
+}
+
+[data-theme="light"] .typing-input {
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .typing-input::placeholder {
+    color: var(--text-secondary);
+}
+
+[data-theme="light"] .result-grade {
+    text-shadow: none;
+}
+
 /* Theme Toggle Button */
 .theme-toggle {
     position: fixed;
@@ -763,24 +815,7 @@ button {
     background: rgba(76, 175, 80, 0.2);
 }
 
-/* 다크 모드 (기본값) */
-@media (prefers-color-scheme: light) {
-    :root:not([data-theme]) {
-        --bg-dark: #f5f5f5;
-        --bg-card: #ffffff;
-        --text-primary: #1a1a1a;
-        --text-secondary: #666666;
-        --border-color: #e0e0e0;
-    }
-
-    body:not([data-theme]) {
-        background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
-    }
-
-    .typing-display:not([data-theme]) {
-        background: rgba(76, 175, 80, 0.05);
-    }
-}
+/* prefers-color-scheme handled by data-theme attribute set via JS */
 
 /* === Keyboard Focus Accessibility === */
 button:focus-visible,
