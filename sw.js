@@ -1,5 +1,5 @@
 // Typing Speed Test - Service Worker
-const CACHE_NAME = 'typing-speed-v3';
+const CACHE_NAME = 'typing-speed-v4';
 const urlsToCache = [
     '/',
     '/index.html',

@@ -16,8 +16,12 @@ class TypingSpeedTest {
         this.timeRemaining = 60;
         this.timerInterval = null;
         this.testStarted = false;
+        this.combo = 0;
+        this.maxCombo = 0;
+        this.lastWordCount = 0;
 
         this.initElements();
+        this.loadStats();
         this.attachEventListeners();
     }
 
@@ -43,10 +47,25 @@ class TypingSpeedTest {
         this.resultAccuracy = document.getElementById('result-accuracy');
         this.shareButton = document.getElementById('share-button');
 
+        // Live HUD
+        this.liveWpm = document.getElementById('live-wpm');
+        this.liveAccuracy = document.getElementById('live-accuracy');
+        this.comboDisplay = document.getElementById('combo-display');
+
         // 버튼
         this.restartButton = document.getElementById('restart-button');
         this.shareButton = document.getElementById('share-button');
         this.backButton = document.getElementById('back-button');
+    }
+
+    loadStats() {
+        const bestWpm = localStorage.getItem('typing_bestWPM') || '-';
+        const lastWpm = localStorage.getItem('typing_lastWPM') || '-';
+        const lastAcc = localStorage.getItem('typing_lastAccuracy') || '-';
+        const el = (id) => document.getElementById(id);
+        if (el('best-wpm')) el('best-wpm').textContent = bestWpm;
+        if (el('last-wpm')) el('last-wpm').textContent = lastWpm;
+        if (el('last-accuracy')) el('last-accuracy').textContent = lastAcc !== '-' ? lastAcc + '%' : '-';
     }
 
     attachEventListeners() {
@@ -124,6 +143,9 @@ class TypingSpeedTest {
         this.gameState = mode === 'word' ? 'word-mode' : 'sentence-mode';
         this.testStarted = false;
         this.typedText = '';
+        this.combo = 0;
+        this.maxCombo = 0;
+        this.lastWordCount = 0;
 
         // Difficulty-based settings for word mode
         const diffConfig = { easy: { time: 90, words: 20 }, normal: { time: 60, words: 30 }, hard: { time: 30, words: 40 } };
@@ -167,11 +189,70 @@ class TypingSpeedTest {
 
         this.typedText = input;
         this.updateDisplay();
+        this.updateLiveStats();
+        this.updateCombo();
 
         // 게임 종료 체크
-        const words = wordData.splitIntoWords(this.testText);
         if (this.mode === 'sentence' && this.typedText.trim() === this.testText.trim()) {
             this.endGame();
+        }
+    }
+
+    updateLiveStats() {
+        if (!this.testStarted || !this.startTime) return;
+        const elapsed = (Date.now() - this.startTime) / 1000 / 60;
+        if (elapsed <= 0) return;
+        const charCount = this.typedText.length;
+        const rawWpm = Math.round((charCount / 5) / elapsed);
+
+        const words = wordData.splitIntoWords(this.testText);
+        const typedWords = wordData.splitIntoWords(this.typedText);
+        let correct = 0;
+        let total = 0;
+        words.forEach((word, i) => {
+            if (i < typedWords.length) {
+                total++;
+                if (typedWords[i] === word) correct++;
+            }
+        });
+        const acc = total > 0 ? Math.round((correct / total) * 100) : 100;
+
+        if (this.liveWpm) this.liveWpm.textContent = rawWpm;
+        if (this.liveAccuracy) this.liveAccuracy.textContent = acc + '%';
+    }
+
+    updateCombo() {
+        const words = wordData.splitIntoWords(this.testText);
+        const typedWords = wordData.splitIntoWords(this.typedText);
+        // Only check completed words (not the one currently being typed)
+        const completedCount = Math.max(0, typedWords.length - 1);
+        if (completedCount <= this.lastWordCount) return;
+
+        // Check the word that was just completed
+        for (let i = this.lastWordCount; i < completedCount; i++) {
+            if (typedWords[i] === words[i]) {
+                this.combo++;
+                if (this.combo > this.maxCombo) this.maxCombo = this.combo;
+                if (this.combo >= 5 && window.sfx) window.sfx.play('combo');
+                if (this.combo >= 10 && typeof Haptic !== 'undefined') Haptic.light();
+            } else {
+                this.combo = 0;
+            }
+        }
+        this.lastWordCount = completedCount;
+
+        // Update combo display
+        if (this.comboDisplay) {
+            if (this.combo >= 3) {
+                this.comboDisplay.textContent = this.combo + 'x';
+                this.comboDisplay.classList.remove('hidden');
+                this.comboDisplay.classList.toggle('combo-fire', this.combo >= 10);
+                this.comboDisplay.style.animation = 'none';
+                this.comboDisplay.offsetHeight; // reflow
+                this.comboDisplay.style.animation = 'comboPop 0.3s ease';
+            } else {
+                this.comboDisplay.classList.add('hidden');
+            }
         }
     }
 
@@ -299,6 +380,10 @@ class TypingSpeedTest {
         const adjustedWpm = Math.round(this.wpm * (this.accuracy / 100));
         this.wpm = Math.max(0, adjustedWpm);
 
+        // Save last WPM/accuracy
+        localStorage.setItem('typing_lastWPM', this.wpm.toString());
+        localStorage.setItem('typing_lastAccuracy', this.accuracy.toFixed(0));
+
         // Save best WPM to localStorage
         const prevBest = parseInt(localStorage.getItem('typing_bestWPM') || '0', 10);
         if (this.wpm > prevBest) {
@@ -381,6 +466,17 @@ class TypingSpeedTest {
             <div class="result-stat-value">${this.accuracy.toFixed(1)}%</div>
             <div class="result-stat-label" data-i18n="result.accuracy">${i18n.t('result.accuracy')}</div>
         `;
+
+        // Show max combo if notable
+        const comboEl = document.getElementById('result-combo');
+        if (comboEl) {
+            if (this.maxCombo >= 3) {
+                comboEl.textContent = this.maxCombo + 'x';
+                comboEl.parentElement.classList.remove('hidden');
+            } else {
+                comboEl.parentElement.classList.add('hidden');
+            }
+        }
 
         // Inject rewarded ad button for 2x WPM score
         if (typeof GameAds !== 'undefined') {

@@ -80,7 +80,7 @@
       },
       "inLanguage": ["ko", "en", "zh", "hi", "ru", "ja", "es", "pt", "id", "tr", "de", "fr"],
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-      "featureList": "3 Difficulty Levels, 2 Game Modes, WPM Measurement, Accuracy Stats, Sound Effects, Top Percentile Display, Social Sharing",
+      "featureList": "3 Difficulty Levels, 2 Game Modes, Live WPM Display, Combo Streak System, Accuracy Stats, Sound Effects, Top Percentile Display, Social Sharing",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.5",
@@ -209,7 +209,19 @@
 
             <!-- Game Screen -->
             <div id="game-screen" class="game-screen">
-                <div class="timer-display" id="timer-display">60s</div>
+                <div class="game-hud">
+                    <div class="hud-stat">
+                        <span class="hud-label" data-i18n="result.wpm">WPM</span>
+                        <span class="hud-value" id="live-wpm">0</span>
+                    </div>
+                    <div class="timer-display" id="timer-display">60s</div>
+                    <div class="hud-stat">
+                        <span class="hud-label" data-i18n="result.accuracy">Accuracy</span>
+                        <span class="hud-value" id="live-accuracy">100%</span>
+                    </div>
+                </div>
+
+                <div class="combo-display hidden" id="combo-display">0x</div>
 
                 <div class="progress-bar">
                     <div class="progress-fill" id="progress-fill"></div>
@@ -252,7 +264,11 @@
                     </div>
                     <div class="result-stat">
                         <div class="result-stat-value" id="result-accuracy">0%</div>
-                        <div class="result-stat-label" data-i18n="result.accuracy">정확도</div>
+                        <div class="result-stat-label" data-i18n="result.accuracy">Accuracy</div>
+                    </div>
+                    <div class="result-stat hidden">
+                        <div class="result-stat-value" id="result-combo">0x</div>
+                        <div class="result-stat-label" data-i18n="result.combo">Best Combo</div>
                     </div>
                 </div>
 
