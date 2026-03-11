@@ -39,7 +39,8 @@ html {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-    background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%) url('../assets/bg-opt.png') center / cover no-repeat fixed;
+    background-blend-mode: overlay;
     color: var(--text-primary);
     min-height: 100vh;
     line-height: 1.6;
@@ -759,7 +760,8 @@ button {
 }
 
 [data-theme="light"] body {
-    background: linear-gradient(135deg, #f5f5fa 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #f5f5fa 0%, #ffffff 100%) url('../assets/bg-opt.png') center / cover no-repeat fixed;
+    background-blend-mode: overlay;
 }
 
 [data-theme="light"] .app-loader {
