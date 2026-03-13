@@ -48,5 +48,12 @@
   "difficulty.normal": "普通",
   "difficulty.normal.desc": "60秒 / 30語",
   "difficulty.hard": "難しい",
-  "difficulty.hard.desc": "30秒 / 40語"
+  "difficulty.hard.desc": "30秒 / 40語",
+  "related": {
+    "title": "もっと楽しむ",
+    "reactionTest": "反応速度テスト",
+    "devQuiz": "開発者クイズ",
+    "wordGuess": "単語当て",
+    "wordScramble": "ワードスクランブル"
+  }
 }

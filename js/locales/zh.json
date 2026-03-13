@@ -48,5 +48,12 @@
   "difficulty.normal": "普通",
   "difficulty.normal.desc": "60秒 / 30词",
   "difficulty.hard": "困难",
-  "difficulty.hard.desc": "30秒 / 40词"
+  "difficulty.hard.desc": "30秒 / 40词",
+  "related": {
+    "title": "探索更多",
+    "reactionTest": "反应速度测试",
+    "devQuiz": "开发者测验",
+    "wordGuess": "猜单词",
+    "wordScramble": "单词拼图"
+  }
 }

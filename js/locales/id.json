@@ -48,5 +48,12 @@
   "difficulty.normal": "Normal",
   "difficulty.normal.desc": "60d / 30 kata",
   "difficulty.hard": "Sulit",
-  "difficulty.hard.desc": "30d / 40 kata"
+  "difficulty.hard.desc": "30d / 40 kata",
+  "related": {
+    "title": "Jelajahi lainnya",
+    "reactionTest": "Tes reaksi",
+    "devQuiz": "Kuis developer",
+    "wordGuess": "Tebak kata",
+    "wordScramble": "Acak kata"
+  }
 }

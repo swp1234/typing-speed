@@ -48,5 +48,12 @@
   "difficulty.normal": "보통",
   "difficulty.normal.desc": "60초 / 30단어",
   "difficulty.hard": "어려움",
-  "difficulty.hard.desc": "30초 / 40단어"
+  "difficulty.hard.desc": "30초 / 40단어",
+  "related": {
+    "title": "더 많은 콘텐츠",
+    "reactionTest": "반응속도 테스트",
+    "devQuiz": "개발자 퀴즈",
+    "wordGuess": "단어 맞추기",
+    "wordScramble": "단어 섞기"
+  }
 }

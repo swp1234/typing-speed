@@ -48,5 +48,12 @@
   "difficulty.normal": "Normal",
   "difficulty.normal.desc": "60sn / 30 kelime",
   "difficulty.hard": "Zor",
-  "difficulty.hard.desc": "30sn / 40 kelime"
+  "difficulty.hard.desc": "30sn / 40 kelime",
+  "related": {
+    "title": "Daha fazla keşfet",
+    "reactionTest": "Reaksiyon testi",
+    "devQuiz": "Geliştirici quiz",
+    "wordGuess": "Kelime tahmin",
+    "wordScramble": "Kelime karıştırma"
+  }
 }

@@ -48,5 +48,12 @@
   "difficulty.normal": "Обычно",
   "difficulty.normal.desc": "60с / 30 слов",
   "difficulty.hard": "Сложно",
-  "difficulty.hard.desc": "30с / 40 слов"
+  "difficulty.hard.desc": "30с / 40 слов",
+  "related": {
+    "title": "Ещё интересное",
+    "reactionTest": "Тест реакции",
+    "devQuiz": "Квиз для разработчиков",
+    "wordGuess": "Угадай слово",
+    "wordScramble": "Анаграммы"
+  }
 }
