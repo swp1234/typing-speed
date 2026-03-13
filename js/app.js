@@ -19,6 +19,7 @@ class TypingSpeedTest {
         this.combo = 0;
         this.maxCombo = 0;
         this.lastWordCount = 0;
+        this.wpmMilestonesReached = new Set();
 
         this.initElements();
         this.loadStats();
@@ -146,6 +147,7 @@ class TypingSpeedTest {
         this.combo = 0;
         this.maxCombo = 0;
         this.lastWordCount = 0;
+        this.wpmMilestonesReached = new Set();
 
         // Difficulty-based settings for word mode
         const diffConfig = { easy: { time: 90, words: 20 }, normal: { time: 60, words: 30 }, hard: { time: 30, words: 40 } };
@@ -219,6 +221,27 @@ class TypingSpeedTest {
 
         if (this.liveWpm) this.liveWpm.textContent = rawWpm;
         if (this.liveAccuracy) this.liveAccuracy.textContent = acc + '%';
+
+        // WPM milestones during gameplay
+        const milestones = [30, 50, 70, 100, 120];
+        for (const m of milestones) {
+            if (rawWpm >= m && !this.wpmMilestonesReached.has(m)) {
+                this.wpmMilestonesReached.add(m);
+                const emoji = m >= 100 ? '🚀' : m >= 70 ? '⭐' : m >= 50 ? '🔥' : '⚡';
+                this.showWpmMilestone(`${emoji} ${m} WPM!`);
+                if (typeof Haptic !== 'undefined') Haptic.light();
+            }
+        }
+    }
+
+    showWpmMilestone(text) {
+        const el = document.createElement('div');
+        el.textContent = text;
+        el.style.cssText = 'position:fixed;top:15%;left:50%;transform:translate(-50%,-50%) scale(0.5);font-size:24px;font-weight:800;color:#f59e0b;text-shadow:0 0 15px rgba(245,158,11,0.5);pointer-events:none;z-index:9999;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),opacity 0.5s;opacity:0;';
+        document.body.appendChild(el);
+        requestAnimationFrame(() => { el.style.transform = 'translate(-50%,-50%) scale(1.1)'; el.style.opacity = '1'; });
+        setTimeout(() => { el.style.opacity = '0'; el.style.transform = 'translate(-50%,-50%) scale(0.8)'; }, 1200);
+        setTimeout(() => el.remove(), 1800);
     }
 
     updateCombo() {
@@ -466,6 +489,30 @@ class TypingSpeedTest {
             <div class="result-stat-value">${this.accuracy.toFixed(1)}%</div>
             <div class="result-stat-label" data-i18n="result.accuracy">${i18n.t('result.accuracy')}</div>
         `;
+
+        // Show improvement delta vs last result
+        const prevWpm = parseInt(localStorage.getItem('typing_prevWPM') || '0', 10);
+        if (prevWpm > 0) {
+            const delta = this.wpm - prevWpm;
+            let deltaEl = document.getElementById('wpm-delta');
+            if (!deltaEl) {
+                deltaEl = document.createElement('div');
+                deltaEl.id = 'wpm-delta';
+                deltaEl.style.cssText = 'text-align:center;font-size:16px;font-weight:700;margin-top:4px;';
+                this.resultWpm.parentElement.appendChild(deltaEl);
+            }
+            if (delta > 0) {
+                deltaEl.textContent = `↑ +${delta} WPM`;
+                deltaEl.style.color = '#10b981';
+            } else if (delta < 0) {
+                deltaEl.textContent = `↓ ${delta} WPM`;
+                deltaEl.style.color = '#ef4444';
+            } else {
+                deltaEl.textContent = '= Same';
+                deltaEl.style.color = '#6b7280';
+            }
+        }
+        localStorage.setItem('typing_prevWPM', this.wpm.toString());
 
         // Show max combo if notable
         const comboEl = document.getElementById('result-combo');
