@@ -176,27 +176,33 @@ class TypingSpeedTest {
     }
 
     handleTyping() {
-        const input = this.typingInput.value;
+        try {
+            const input = this.typingInput.value;
 
-        if (window.sfx) window.sfx.play('key');
+            if (window.sfx) window.sfx.play('key');
 
-        // 첫 글자 입력 시 타이머 시작
-        if (!this.testStarted && input.length > 0) {
-            this.testStarted = true;
-            this.startTime = Date.now();
-            if (this.mode === 'word') {
-                this.startTimer();
+            // 첫 글자 입력 시 타이머 시작
+            if (!this.testStarted && input.length > 0) {
+                this.testStarted = true;
+                this.startTime = Date.now();
+                if (this.mode === 'word') {
+                    this.startTimer();
+                }
             }
-        }
 
-        this.typedText = input;
-        this.updateDisplay();
-        this.updateLiveStats();
-        this.updateCombo();
+            this.typedText = input;
+            this.updateDisplay();
+            this.updateLiveStats();
+            this.updateCombo();
 
-        // 게임 종료 체크
-        if (this.mode === 'sentence' && this.typedText.trim() === this.testText.trim()) {
-            this.endGame();
+            // 게임 종료 체크
+            if (this.mode === 'sentence' && this.typedText.trim() === this.testText.trim()) {
+                this.endGame();
+            }
+        } catch (e) {
+            console.error('Typing handler error:', e);
+            const loader = document.getElementById('app-loader');
+            if (loader) loader.classList.add('hidden');
         }
     }
 
